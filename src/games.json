@@ -1,0 +1,44 @@
+[
+  {
+    "id": "slope",
+    "name": "Slope",
+    "url": "https://kdata1.com/2020/05/slope/",
+    "category": "Action",
+    "description": "A fast-paced 3D speed run game where you roll down a neon slope."
+  },
+  {
+    "id": "tunnel-rush",
+    "name": "Tunnel Rush",
+    "url": "https://kdata1.com/2020/06/tunnel-rush/",
+    "category": "High Speed",
+    "description": "Navigate through neon tunnels at insane speeds."
+  },
+  {
+    "id": "retro-bowl",
+    "name": "Retro Bowl",
+    "url": "https://kdata1.com/2020/06/retro-bowl/",
+    "category": "Sports",
+    "description": "The perfect game for the armchair quarterback."
+  },
+  {
+    "id": "geometry-dash",
+    "name": "Geometry Dash",
+    "url": "https://kdata1.com/2020/07/geometry-dash-world-lite/",
+    "category": "Platformer",
+    "description": "Jump and fly your way through danger in this rhythm-based action platformer."
+  },
+  {
+    "id": "cookie-clicker",
+    "name": "Cookie Clicker",
+    "url": "https://orteil.dashnet.org/cookieclicker/",
+    "category": "Idle",
+    "description": "The classic idle game about baking cookies."
+  },
+  {
+    "id": "tetris",
+    "name": "Tetris",
+    "url": "https://tetris.com/play-tetris",
+    "category": "Classic",
+    "description": "The world-famous puzzle game that everyone knows and loves."
+  }
+]

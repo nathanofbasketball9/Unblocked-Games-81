@@ -3,30 +3,47 @@ let filteredGames = [];
 let selectedCategory = 'All';
 let searchQuery = '';
 
+console.log('Unblocked Games 81: App Initializing...');
+
 async function init() {
     try {
         const response = await fetch('./games.json');
+        if (!response.ok) throw new Error('Failed to fetch games data');
         games = await response.json();
+        console.log('Games loaded:', games.length);
         renderHome();
         setupSearch();
     } catch (error) {
-        console.error('Error loading games:', error);
+        console.error('Initialization Error:', error);
+        document.getElementById('mainContent').innerHTML = `
+            <div class="text-center py-24 text-gray-500">
+                <p>Failed to load games data. Please try again later.</p>
+                <p class="text-xs mt-2">${error.message}</p>
+            </div>
+        `;
     }
 }
 
 function renderHome() {
+    console.log('Rendering Home View');
     const mainContent = document.getElementById('mainContent');
     const template = document.getElementById('homeTemplate');
+    if (!template) return;
+    
     mainContent.innerHTML = '';
     mainContent.appendChild(template.content.cloneNode(true));
 
     renderCategories();
     applyFilters();
-    lucide.createIcons();
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
 function renderCategories() {
     const categoryBar = document.getElementById('categoryBar');
+    if (!categoryBar) return;
+
     const categories = ['All', ...new Set(games.map(g => g.category))];
     
     categoryBar.innerHTML = '';
@@ -48,25 +65,28 @@ function renderCategories() {
 
 function applyFilters() {
     filteredGames = games.filter(game => {
-        const matchesSearch = game.name.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = selectedCategory === 'All' || game.category === selectedCategory;
-        return matchesSearch && matchesCategory;
+        const nameMatches = game.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const categoryMatches = selectedCategory === 'All' || game.category === selectedCategory;
+        return nameMatches && categoryMatches;
     });
 
     const gameGrid = document.getElementById('gameGrid');
     const noResults = document.getElementById('noResults');
     
+    if (!gameGrid) return;
     gameGrid.innerHTML = '';
     
     if (filteredGames.length === 0) {
-        noResults.classList.remove('hidden');
+        if (noResults) noResults.classList.remove('hidden');
     } else {
-        noResults.classList.add('hidden');
+        if (noResults) noResults.classList.add('hidden');
         filteredGames.forEach(game => {
             const card = createGameCard(game);
             gameGrid.appendChild(card);
         });
     }
+    
+    if (window.lucide) lucide.createIcons();
 }
 
 function createGameCard(game) {
@@ -102,8 +122,11 @@ function createGameCard(game) {
 }
 
 function playLevel(game) {
+    console.log('Playing Game:', game.name);
     const mainContent = document.getElementById('mainContent');
     const template = document.getElementById('playerTemplate');
+    if (!template) return;
+
     mainContent.innerHTML = '';
     mainContent.appendChild(template.content.cloneNode(true));
 
@@ -113,9 +136,8 @@ function playLevel(game) {
     document.getElementById('playerGameDesc').textContent = game.description;
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
     
-    // Store current game for pop-out
     window.currentPlayingGame = game;
 }
 
@@ -123,11 +145,14 @@ function showHome() {
     selectedCategory = 'All';
     searchQuery = '';
     renderHome();
-    document.getElementById('searchBar').value = '';
+    const searchBar = document.getElementById('searchBar');
+    if (searchBar) searchBar.value = '';
 }
 
 function setupSearch() {
     const searchBar = document.getElementById('searchBar');
+    if (!searchBar) return;
+    
     searchBar.addEventListener('input', (e) => {
         searchQuery = e.target.value;
         if (document.getElementById('gameGrid')) {
@@ -144,6 +169,7 @@ function popOut() {
 
 function toggleFullscreen() {
     const iframe = document.getElementById('gameIframe');
+    if (!iframe) return;
     if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
     } else if (iframe.webkitRequestFullscreen) {
@@ -153,5 +179,7 @@ function toggleFullscreen() {
     }
 }
 
-// Start the app
-init();
+document.addEventListener('DOMContentLoaded', init);
+window.showHome = showHome;
+window.popOut = popOut;
+window.toggleFullscreen = toggleFullscreen;

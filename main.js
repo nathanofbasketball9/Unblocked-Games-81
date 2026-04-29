@@ -193,6 +193,7 @@ function applyFilters() {
 }
 
 window.setCategory = setCategory;
+window.playLevel = playLevel;
 
 function createGameCard(game, theme) {
     const div = document.createElement('div');
@@ -258,9 +259,7 @@ function setupSearch() {
     
     searchBar.addEventListener('input', (e) => {
         searchQuery = e.target.value;
-        if (document.getElementById('gameGrid')) {
-            applyFilters();
-        }
+        applyFilters();
     });
 }
 

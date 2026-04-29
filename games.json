@@ -10,18 +10,18 @@
   {
     "id": "eggy-car",
     "name": "Eggy Car",
-    "url": "https://html5.gamedistribution.com/712396105f2c45388c34f2482e9644e5/",
+    "url": "https://games.crazygames.com/en_US/eggy-car/index.html?czyExpNexx360UserSync_CZY_18427=ineligible&isNewUser=false&v=1.356",
     "category": "Arcade",
     "description": "Drive a car with an egg on top and try not to break it while over hills and valleys.",
-    "thumbnail": "https://tcf.admeen.org/game/16500/16238/400x246/eggy-car.webp"
+    "thumbnail": "https://i.ytimg.com/vi/U2SgrOeRrrs/maxresdefault.jpg"
   },
   {
     "id": "subway-surfers",
     "name": "Subway Surfers",
-    "url": "https://html5.gamedistribution.com/6949397750fb4e5a953e5e4d25712c96/",
+    "url": "http://subwaysurferscity.io/subway-surfers-zurich.embed",
     "category": "Action",
     "description": "Dash and dodge as fast as you can through the subway tunnels.",
-    "thumbnail": "https://tcf.admeen.org/game/14500/14298/400x246/subway-surfers.webp"
+    "thumbnail": "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/231cb237ab22763a61c2ca0eac6a3760/subway-surfers.png"
   },
   {
     "id": "moto-x3m",
@@ -30,5 +30,13 @@
     "category": "Sports",
     "description": "The best moto racing game with challenging levels and crazy stunts.",
     "thumbnail": "https://tcf.admeen.org/game/13500/13298/400x246/moto-x3m.webp"
+  },
+  {
+    "id": "snow-rider-3d",
+    "name": "Snow Rider 3D",
+    "url": "https://www.gstatic.com/atari/embeds/83a60601c213b72fb19c1855fb0c5f26/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.HLcjcliCxoY.O%2Fd%3D1%2Frs%3DAHpOoo-EKlLcELGvY6Qdg_kTBmN3Ra8MLw%2Fm%3D__features__&r=135507926",
+    "category": "Sports",
+    "description": "Experience the thrill of downhill sledding in Snow Rider 3D. Dodge obstacles and collect gifts!",
+    "thumbnail": "https://i0.wp.com/diva-magazine.com/wp-content/uploads/2025/11/snow-rider-3d.jpg?fit=640%2C640&ssl=1"
   }
 ]

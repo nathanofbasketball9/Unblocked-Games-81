@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "npx -y servor . 3000",
+    "start": "npx -y servor . 3000",
+    "build": "mkdir -p dist && cp -r index.html script.js games.json dist/",
+    "preview": "npx -y servor . 3000",
     "clean": "rm -rf dist",
-    "lint": "echo 'Linting disabled for JS conversion'"
+    "lint": "echo 'No lint required'"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
